@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
   </head>
   <body>
+    <button onclick="game()">GAME</button>
     <script>
       function computerPlay() {
         let select = Math.floor(Math.random() * 3);
@@ -17,8 +18,8 @@
       }
       function playRound(playerSelection, computerSelection) {
         let result = null;
-        let won = "You won!";
-        let lost = "You lost!";
+        let won = 1;
+        let lost = 0;
 
         playerSelection = playerSelection.toLowerCase();
         if (playerSelection === computerSelection) {
@@ -32,12 +33,14 @@
             } else if (computerSelection == "scissors") {
               result = won;
             }
+            break;
           case "paper":
             if (computerSelection === "rock") {
               result = won;
             } else if (computerSelection == "scissors") {
               result = lost;
             }
+            break;
 
           case "scissors":
             if (computerSelection === "paper") {
@@ -45,16 +48,48 @@
             } else if (computerSelection == "rock") {
               result = lost;
             }
+            break;
         }
-        if (result === won) {
-          return `${won} ${playerSelection} beats ${computerSelection}!`;
-        } else {
-          return `${lost} ${computerSelection} beats ${playerSelection}!`;
+        return result;
+      }
+      function game() {
+        let computerSelection = null;
+        let playerSelection = null;
+        let result = null;
+        let playerScore = 0;
+        let computerScore = 0;
+        for (let i = 0; i < 5; i++) {
+          let computerSelection = computerPlay();
+          let playerSelection = prompt("choose your move");
+          result = playRound(playerSelection, computerSelection);
+          if (typeof result == "string") {
+            console.log("its a tie, play again!");
+            i--;
+            continue;
+          }
+          if (result) {
+            console.log(
+              `You won! ${playerSelection} beats ${computerSelection}.`
+            );
+            playerScore++;
+          } else {
+            console.log(
+              `You lost! ${computerSelection} beats ${playerSelection}.`
+            );
+            computerScore++;
+          }
+          if (playerScore === 3) {
+            console.log("you won the match!");
+            console.log(`Score you:${playerScore}, computer:${computerScore}`);
+
+            break;
+          } else if (computerScore === 3) {
+            console.log("you lost :(");
+            console.log(`Score you:${playerScore}, computer:${computerScore}`);
+            break;
+          }
         }
       }
-      let computerSelection = computerPlay();
-      let playerSelection = prompt("choose your move");
-      console.log(playRound(playerSelection, computerSelection));
     </script>
   </body>
 </html>
