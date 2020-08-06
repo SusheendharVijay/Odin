@@ -9,46 +9,29 @@
     <script>
       function computerPlay() {
         let select = Math.floor(Math.random() * 3);
-        console.log(select);
-        let win = "You won!";
-        let lost = "You lost!";
         let options = ["rock", "paper", "scissors"];
         let selection = options[select];
         return selection;
       }
       function playRound(playerSelection, computerSelection) {
         let result = null;
-        let won = 1;
-        let lost = 0;
 
         playerSelection = playerSelection.toLowerCase();
-        if (playerSelection === computerSelection) {
+        let ps = playerSelection;
+        let cs = computerSelection;
+
+        if (ps === cs) {
           return "It's a tie play again!";
         }
 
-        switch (playerSelection) {
-          case "rock":
-            if (computerSelection === "paper") {
-              result = lost;
-            } else if (computerSelection == "scissors") {
-              result = won;
-            }
-            break;
-          case "paper":
-            if (computerSelection === "rock") {
-              result = won;
-            } else if (computerSelection == "scissors") {
-              result = lost;
-            }
-            break;
-
-          case "scissors":
-            if (computerSelection === "paper") {
-              result = won;
-            } else if (computerSelection == "rock") {
-              result = lost;
-            }
-            break;
+        if (
+          (ps == "rock" && cs == "scissors") ||
+          (ps == "paper" && cs == "rock") ||
+          (ps == "scissors" && cs == "paper")
+        ) {
+          result = 1;
+        } else {
+          result = 0;
         }
         return result;
       }
