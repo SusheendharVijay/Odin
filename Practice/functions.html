@@ -8,7 +8,25 @@
 
   <body>
     <script>
-      console.log("hello world!");
+      let seven = (number) => number + 7;
+
+      console.log(seven(34));
+
+      let multiply = (num1, num2) => num1 * num2;
+
+      console.log(multiply(3, 4));
+      function captilize(text) {
+        text = text.toLowerCase();
+        newText = text.charAt(0).toUpperCase() + text.slice(1);
+        console.log(newText);
+      }
+
+      captilize("This is NOt sok akKAKKSFK SK");
+
+      function lastLetter(word) {
+        console.log(word.slice(-1));
+      }
+      lastLetter("dammnnnnmmmmsmsmsmmsm sonb");
     </script>
   </body>
 </html>
