@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RockPaperScissors</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      function computerPlay() {
+        let select = Math.floor(Math.random() * 3);
+        console.log(select);
+        let win = "You won!";
+        let lost = "You lost!";
+        let options = ["rock", "paper", "scissors"];
+        let selection = options[select];
+        return selection;
+      }
+      function playRound(playerSelection, computerSelection) {
+        let result = null;
+        let won = "You won!";
+        let lost = "You lost!";
+
+        playerSelection = playerSelection.toLowerCase();
+        if (playerSelection === computerSelection) {
+          return "It's a tie play again!";
+        }
+
+        switch (playerSelection) {
+          case "rock":
+            if (computerSelection === "paper") {
+              result = lost;
+            } else if (computerSelection == "scissors") {
+              result = won;
+            }
+          case "paper":
+            if (computerSelection === "rock") {
+              result = won;
+            } else if (computerSelection == "scissors") {
+              result = lost;
+            }
+
+          case "scissors":
+            if (computerSelection === "paper") {
+              result = won;
+            } else if (computerSelection == "rock") {
+              result = lost;
+            }
+        }
+        if (result === won) {
+          return `${won} ${playerSelection} beats ${computerSelection}!`;
+        } else {
+          return `${lost} ${computerSelection} beats ${playerSelection}!`;
+        }
+      }
+      let computerSelection = computerPlay();
+      let playerSelection = prompt("choose your move");
+      console.log(playRound(playerSelection, computerSelection));
+    </script>
+  </body>
+</html>
