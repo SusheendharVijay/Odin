@@ -1,0 +1,42 @@
+.options {
+  text-align: center;
+}
+
+.options button {
+  width: 120px;
+  height: 90px;
+  background-color: blueviolet;
+  opacity: 70%;
+  border-radius: 30px;
+  font-size: 22px;
+  color: white;
+  margin: 10px;
+  position: relative;
+  top: 400px;
+  border: transparent;
+  box-shadow: 2px 2px 3px black;
+}
+.score {
+  text-align: center;
+  font-size: 200px;
+  position: relative;
+  top: 300px;
+}
+
+.game-start {
+  text-align: center;
+  position: relative;
+  top: 100px;
+}
+.game-start #gameStart {
+  width: 200px;
+  height: auto;
+  padding: 20px;
+  background-color: yellowgreen;
+  opacity: 70%;
+  border: transparent;
+  border-radius: 30px;
+  font-size: 22px;
+  color: white;
+  box-shadow: 2px 2px 3px black;
+}
