@@ -7,17 +7,21 @@
     <link href="paper.css" rel="stylesheet" />
   </head>
   <body>
+    <h1 style="text-align: center;">Rock Paper Scissors</h1>
     <div class="game-start">
-      <button id="gameStart" onclick="game()">Start New Game</button>
+      <button id="gameStart" onclick="resetGame()">Start New Game</button>
     </div>
     <div class="score">
       <span id="playerScore">0</span><span>:</span
       ><span id="computerScore">0</span>
     </div>
     <div class="options">
-      <button>Rock</button>
-      <button>Paper</button>
-      <button>Scissors</button>
+      <button onclick="game('rock')">Rock</button>
+      <button onclick="game('paper')">Paper</button>
+      <button onclick="game('scissors')">Scissors</button>
+      <div class="results">
+        <p>Pick and option to start playing!</p>
+      </div>
     </div>
   </body>
 </html>

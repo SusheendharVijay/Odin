@@ -12,7 +12,7 @@ function playRound(playerSelection, computerSelection) {
   let cs = computerSelection;
 
   if (ps === cs) {
-    return "It's a tie play again!";
+    return -1;
   }
 
   if (
@@ -26,37 +26,58 @@ function playRound(playerSelection, computerSelection) {
   }
   return result;
 }
-function game() {
-  let computerSelection = null;
-  let playerSelection = null;
-  let result = null;
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-    let computerSelection = computerPlay();
-    let playerSelection = prompt("choose your move");
-    result = playRound(playerSelection, computerSelection);
-    if (typeof result == "string") {
-      console.log("its a tie, play again!");
-      i--;
-      continue;
-    }
-    if (result) {
-      console.log(`You won! ${playerSelection} beats ${computerSelection}.`);
-      playerScore++;
-    } else {
-      console.log(`You lost! ${computerSelection} beats ${playerSelection}.`);
-      computerScore++;
-    }
-    if (playerScore === 3) {
-      console.log("you won the match!");
-      console.log(`Score you:${playerScore}, computer:${computerScore}`);
 
-      break;
-    } else if (computerScore === 3) {
-      console.log("you lost :(");
-      console.log(`Score you:${playerScore}, computer:${computerScore}`);
-      break;
-    }
+let playerScore = 0;
+let computerScore = 0;
+const results = document.querySelector(".results");
+const playerScoreBoard = document.querySelector("#playerScore");
+const computerScoreBoard = document.querySelector("#computerScore");
+
+function game(playerSelection) {
+  let computerSelection = computerPlay();
+
+  let result = playRound(playerSelection, computerSelection);
+  if (result === -1) {
+    results.textContent = "its a tie, play again!";
+    return;
   }
+  if (result) {
+    results.textContent = `You won! ${playerSelection} beats ${computerSelection}.`;
+
+    playerScore++;
+  } else {
+    results.textContent = `You lost! ${computerSelection} beats ${playerSelection}.`;
+    computerScore++;
+  }
+
+  if (playerScore === 5) {
+    updateScore(playerScore, computerScore);
+    playerScore = 0;
+    computerScore = 0;
+    results.textContent = "You won the match!";
+    setTimeout(function () {
+      updateScore(playerScore, computerScore);
+    }, 300);
+  } else if (computerScore === 5) {
+    updateScore(playerScore, computerScore);
+
+    playerScore = 0;
+    computerScore = 0;
+    results.textContent = "You lost the match";
+    setTimeout(function () {
+      updateScore(playerScore, computerScore);
+    }, 300);
+  } else {
+    updateScore(playerScore, computerScore);
+  }
+}
+
+function updateScore(playerScore, computerScore) {
+  playerScoreBoard.textContent = playerScore;
+  computerScoreBoard.textContent = computerScore;
+}
+function resetGame() {
+  playerScore = computerScore = 0;
+  playerScoreBoard.textContent = playerScore;
+  computerScoreBoard.textContent = computerScore;
 }
