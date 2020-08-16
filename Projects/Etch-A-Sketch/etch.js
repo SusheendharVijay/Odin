@@ -13,5 +13,5 @@ for (let i = 0; i < 256; i++) {
 function removeEffect(event) {
   setTimeout(function () {
     event.target.classList.remove("onhover");
-  }, 300);
+  }, 150);
 }
