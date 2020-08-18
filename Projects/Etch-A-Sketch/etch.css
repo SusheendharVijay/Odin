@@ -2,15 +2,35 @@
   display: grid;
   grid-template-columns: repeat(16, 60px);
   grid-template-rows: repeat(16, 60px);
+  position: relative;
+  width: 960px;
+  margin: auto;
+  margin-top: 100px;
+  border: 5px solid black;
 }
 
 .box {
   background-color: aqua;
-  border: 1px solid black;
+  border: 1px solid #18eaff;
   /*width: 50px;
   height: 50px;*/
 }
 
 .onhover {
-  background-color: black;
+  background-color: blue;
+}
+
+.btn {
+  text-align: center;
+}
+
+.btn #button {
+  padding: 20px;
+  margin-top: 30px;
+  background-color: coral;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 22px;
+  color: white;
+  outline: none;
 }
