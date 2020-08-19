@@ -11,5 +11,4 @@ const palindromes = function (string) {
   return string === string.split("").reverse().join("");
 };
 
-palindromes("A car, a man, a maraca.");
 module.exports = palindromes;
