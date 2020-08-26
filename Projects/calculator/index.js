@@ -35,7 +35,7 @@ function operate(num1, operator, num2) {
   }
 }
 
-const buttons = document.querySelector(".numberOperators");
+const buttons = document.querySelector(".numberBtns");
 for (let i = 0; i <= 9; i++) {
   let newDiv = document.createElement("div");
   newDiv.textContent = i;
