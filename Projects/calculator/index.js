@@ -34,3 +34,11 @@ function operate(num1, operator, num2) {
       return "Not a valid a operator!";
   }
 }
+
+const buttons = document.querySelector(".numberOperators");
+for (let i = 0; i <= 9; i++) {
+  let newDiv = document.createElement("div");
+  newDiv.textContent = i;
+  newDiv.setAttribute("id", "numbers");
+  buttons.appendChild(newDiv);
+}
