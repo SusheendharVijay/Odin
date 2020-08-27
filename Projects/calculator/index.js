@@ -78,6 +78,7 @@ for (let operator of operatorButtons) {
 equalSign.addEventListener("click", evaluate);
 
 function evaluate() {
+  //works only for two number operations with only one digit, need to use regex to separate numbers and operators.
   let displayedText = displayText.textContent;
   let literals = displayedText.split("");
   let num1 = Number(literals[0]);
