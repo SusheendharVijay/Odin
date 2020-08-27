@@ -36,9 +36,19 @@ function operate(num1, operator, num2) {
 }
 
 const buttons = document.querySelector(".numberBtns");
+const operatorBtns = document.querySelector(".operatorBtns");
 for (let i = 0; i <= 9; i++) {
   let newDiv = document.createElement("div");
   newDiv.textContent = i;
   newDiv.setAttribute("id", "numbers");
   buttons.appendChild(newDiv);
+}
+
+let operators = ["+", "-", "/", "."];
+
+for (let i = 0; i < 4; i++) {
+  let newDiv = document.createElement("div");
+  newDiv.textContent = operators[i];
+  newDiv.setAttribute("id", "operators");
+  operatorBtns.appendChild(newDiv);
 }
